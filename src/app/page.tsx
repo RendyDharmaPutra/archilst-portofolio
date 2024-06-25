@@ -1,17 +1,16 @@
+import { Suspense } from "react";
+
 import Profile from "@/components/profile";
-import Project from "@/components/project";
 import Desc from "@/components/desc";
 import Title from "@/components/title";
-import Picture from "@/components/picture";
 import Projects from "@/components/server/projects";
-import { Suspense } from "react";
 import Pictures from "@/components/server/pictures";
 import ProjectsLoader from "@/components/loader/projectsLoader";
 import PicturesLoader from "@/components/loader/picturesLoader";
 
-export default function Page() {
+export default function Page(): JSX.Element {
 	return (
-		<div className={`  flex flex-col flex-wrap items-center `}>
+		<div className={`flex flex-col flex-wrap items-center`}>
 			<section
 				id="profile"
 				className="mb-28 pt-8 w-full flex flex-col items-center "

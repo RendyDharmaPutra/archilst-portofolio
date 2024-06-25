@@ -1,5 +1,5 @@
 "use client";
-import { Inter } from "next/font/google";
+
 import {
 	Card,
 	CardHeader,
@@ -9,9 +9,7 @@ import {
 import Image from "next/image";
 import profile from "/public/profile.jpg";
 
-const inter = Inter({ weight: "800", subsets: ["latin"] });
-
-export default function Profile() {
+export default function Profile(): JSX.Element {
 	return (
 		<Card
 			className="mb-3 group/card w-[18rem] sm:w-[22rem] shadow-lg"
@@ -26,13 +24,6 @@ export default function Profile() {
 				onPointerEnterCapture={undefined}
 				onPointerLeaveCapture={undefined}
 			>
-				{/* <img
-          // src='https://source.unsplash.com/288x288?sky'
-          src='/public/profile.jpg'
-          alt='profile-picture'
-          className='rounded-full'
-        /> */}
-
 				<Image src={profile} alt="Profile" className="" />
 			</CardHeader>
 			<CardBody
@@ -62,41 +53,6 @@ export default function Profile() {
 					Student - Programmer
 				</Typography>
 			</CardBody>
-			{/* <CardFooter className='flex justify-center gap-7 pt-2'>
-        <Tooltip content='Like'>
-          <Typography
-            as='a'
-            href='#facebook'
-            variant='lead'
-            color='blue'
-            textGradient
-          >
-            <i className='fab fa-facebook' />
-          </Typography>
-        </Tooltip>
-        <Tooltip content='Follow'>
-          <Typography
-            as='a'
-            href='#twitter'
-            variant='lead'
-            color='light-blue'
-            textGradient
-          >
-            <i className='fab fa-twitter' />
-          </Typography>
-        </Tooltip>
-        <Tooltip content='Follow'>
-          <Typography
-            as='a'
-            href='#instagram'
-            variant='lead'
-            color='purple'
-            textGradient
-          >
-            <i className='fab fa-instagram' />
-          </Typography>
-        </Tooltip>
-      </CardFooter> */}
 		</Card>
 	);
 }

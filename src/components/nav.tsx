@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Inter } from "next/font/google";
+import Link from "next/link";
+
 import {
 	Navbar,
 	MobileNav,
@@ -24,33 +25,31 @@ import {
 import { AiOutlineGithub } from "@react-icons/all-files/ai/AiOutlineGithub";
 import { AiOutlineInstagram } from "@react-icons/all-files/ai/AiOutlineInstagram";
 import { HiOutlineMail } from "@react-icons/all-files/hi/HiOutlineMail";
-import Link from "next/link";
-// import profile from "/public/profile.jpg";
-
-const inter = Inter({ subsets: ["latin"] });
+import { navlist, profilelist } from "@/utils/types/menu";
 
 // profile menu component
-const profileMenuItems = [
-	{
-		label: "Email",
-		icon: HiOutlineMail,
-		route: "mailto:rendydharmaputra424@gmail.com",
-	},
-	{
-		label: "Github",
-		icon: AiOutlineGithub,
-		route: "https://github.com/RendyDharmaPutra",
-	},
-	{
-		label: "Instagram",
-		icon: AiOutlineInstagram,
-		route: "https://www.instagram.com/arclst24/",
-	},
-];
-
-function ProfileMenu() {
+function ProfileMenu(): React.JSX.Element {
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 	const closeMenu = () => setIsMenuOpen(false);
+
+	const profileMenuItems: profilelist[] = [
+		{
+			label: "Email",
+			icon: HiOutlineMail,
+			route: "mailto:rendydharmaputra424@gmail.com",
+		},
+		{
+			label: "Github",
+			icon: AiOutlineGithub,
+			route: "https://github.com/RendyDharmaPutra",
+		},
+		{
+			label: "Instagram",
+			icon: AiOutlineInstagram,
+			route: "https://www.instagram.com/arclst24/",
+		},
+	];
+
 	return (
 		<Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
 			<MenuHandler>
@@ -70,8 +69,7 @@ function ProfileMenu() {
 						size="sm"
 						alt="Profile"
 						className="border object-contain border-blue-500 p-0.5"
-						// src='https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80'
-						src="https://ezoofkqgdygcddmpknsp.supabase.co/storage/v1/object/sign/archilst/profile/profile.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJhcmNoaWxzdC9wcm9maWxlL3Byb2ZpbGUuanBnIiwiaWF0IjoxNjg3MjM0MjM2LCJleHAiOjE2ODk4MjYyMzZ9.Fpidyq2pKMRXr31lvJK_22zuHSS-rYp8pBK6Oveo3aQ&t=2023-06-20T04%3A10%3A25.702Z"
+						src="https://ezoofkqgdygcddmpknsp.supabase.co/storage/v1/object/sign/archilst/profile/profile.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJhcmNoaWxzdC9wcm9maWxlL3Byb2ZpbGUuanBnIiwiaWF0IjoxNzE5MjkyMzQ5LCJleHAiOjE3NTA4MjgzNDl9.ELDyK_-2FiQ_5yW-pO0XkXRg9R9I_5XeDC8bvBwJ7AE&t=2024-06-25T05%3A12%3A24.390Z"
 					/>
 					<ChevronDownIcon
 						strokeWidth={2.5}
@@ -129,25 +127,25 @@ function ProfileMenu() {
 }
 
 // nav list component
-const navListItems = [
-	{
-		label: "Account",
-		route: "#",
-		icon: UserCircleIcon,
-	},
-	{
-		label: "Projects",
-		route: "#projects",
-		icon: CubeTransparentIcon,
-	},
-	{
-		label: "Photography",
-		route: "#photography",
-		icon: CameraIcon,
-	},
-];
+function NavList(): React.JSX.Element {
+	const navListItems: navlist[] = [
+		{
+			label: "Account",
+			route: "#",
+			icon: UserCircleIcon,
+		},
+		{
+			label: "Projects",
+			route: "#projects",
+			icon: CubeTransparentIcon,
+		},
+		{
+			label: "Photography",
+			route: "#photography",
+			icon: CameraIcon,
+		},
+	];
 
-function NavList() {
 	return (
 		<ul className="mb-4 mt-2 flex flex-col gap-2 lg:my-0 lg:flex-row lg:items-center">
 			{navListItems.map(({ label, route, icon }, key) => (
@@ -177,7 +175,7 @@ function NavList() {
 	);
 }
 
-export default function Navigation() {
+export default function Navigation(): React.JSX.Element {
 	const [isNavOpen, setIsNavOpen] = React.useState(false);
 	const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
 

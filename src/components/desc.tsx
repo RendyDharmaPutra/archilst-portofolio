@@ -1,7 +1,7 @@
 "use client";
 import { Card, CardBody, Typography } from "@material-tailwind/react";
 
-export default function Desc() {
+export default function Desc(): JSX.Element {
 	return (
 		<Card
 			placeholder={undefined}
@@ -22,10 +22,9 @@ export default function Desc() {
 					color="gray"
 					className="font-normal"
 				>
-					{/* Because it&apos;s about motivating the doers. Because I&apos;m here to
-          follow my dreams and inspire others. */}
-					I am a Programmer from Jember, Indonesia. Have interest with
-					technology, photograph, and people
+					I am a Programmer from Jember, Indonesia, interested in technology,
+					photography, and society. I believe in using technology to foster
+					positive change and improve the lives of those around me.
 				</Typography>
 			</CardBody>
 		</Card>

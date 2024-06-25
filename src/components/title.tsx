@@ -1,7 +1,7 @@
 "use client";
 import { Typography } from "@material-tailwind/react";
 
-export default function Title({ title }: { title: string }) {
+export default function Title({ title }: { title: string }): JSX.Element {
 	return (
 		<div className="mb-7 lg:mb-9 py-3 px-8 max-w-[14rem] font-extabold text-center rounded-xl bg-white shadow-lg">
 			<Typography

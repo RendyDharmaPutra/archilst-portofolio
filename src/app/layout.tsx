@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { Quicksand } from "next/font/google";
 import Navigation from "@/components/nav";
 import "./globals.css";
+import { NextFont } from "next/dist/compiled/@next/font";
 
-const inter = Inter({ subsets: ["latin"] });
-const quicksand = Quicksand({ weight: "500", subsets: ["latin"] });
+const quicksand: NextFont = Quicksand({ weight: "500", subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Archilst",
@@ -16,7 +15,7 @@ export default function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
-}>) {
+}>): JSX.Element {
 	return (
 		<html lang="en" className="scroll-smooth">
 			<body
