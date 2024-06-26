@@ -1,16 +1,25 @@
-import { MongoClient } from 'mongodb';
+import { Db, MongoClient } from "mongodb";
 
-export async function dbconnect() {
-  const uri =
-    'mongodb+srv://archilst:rendydp424@basic.xol0yrs.mongodb.net/?retryWrites=true&w=majority';
-  const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+async function dbconnect(): Promise<{
+	db: Db;
+	client: MongoClient;
+}> {
+	const uri: string = process.env.DB_URL!;
+	const client: MongoClient = new MongoClient(uri);
 
-  await client.connect();
+	await client.connect();
 
-  const db = client.db('nextjs');
+	const db: Db = client.db(process.env.DB_NAME);
 
-  return { db, client };
+	return { db, client };
+}
+
+export async function getData(collection: string) {
+	const { db, client } = await dbconnect();
+
+	const data = await db.collection(collection).find().toArray();
+
+	client.close();
+
+	return data;
 }

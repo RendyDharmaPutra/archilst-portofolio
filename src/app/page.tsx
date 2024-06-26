@@ -3,8 +3,8 @@ import { Suspense } from "react";
 import Profile from "@/components/profile";
 import Desc from "@/components/desc";
 import Title from "@/components/title";
-import Projects from "@/components/server/projects";
-import Pictures from "@/components/server/pictures";
+import Projects from "@/components/wrapper/projects";
+import Pictures from "@/components/wrapper/pictures";
 import ProjectsLoader from "@/components/loader/projectsLoader";
 import PicturesLoader from "@/components/loader/picturesLoader";
 

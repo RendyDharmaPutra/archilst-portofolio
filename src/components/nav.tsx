@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { createElement, useEffect, useState } from "react";
 import Link from "next/link";
 
 import {
@@ -25,12 +25,13 @@ import {
 import { AiOutlineGithub } from "@react-icons/all-files/ai/AiOutlineGithub";
 import { AiOutlineInstagram } from "@react-icons/all-files/ai/AiOutlineInstagram";
 import { HiOutlineMail } from "@react-icons/all-files/hi/HiOutlineMail";
+import { AiOutlineAudit } from "@react-icons/all-files/Ai/AiOutlineAudit";
 import { navlist, profilelist } from "@/utils/types/menu";
 
 // profile menu component
-function ProfileMenu(): React.JSX.Element {
-	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-	const closeMenu = () => setIsMenuOpen(false);
+function ProfileMenu(): JSX.Element {
+	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+	const closeMenu = (): void => setIsMenuOpen(false);
 
 	const profileMenuItems: profilelist[] = [
 		{
@@ -48,6 +49,12 @@ function ProfileMenu(): React.JSX.Element {
 			icon: AiOutlineInstagram,
 			route: "https://www.instagram.com/arclst24/",
 		},
+		{
+			label: "Resume",
+			icon: AiOutlineAudit,
+			route:
+				"https://drive.google.com/file/d/1J_UgbGGq1awZt2ZDSruU_DfWgJYoOZGk/view?usp=sharing",
+		},
 	];
 
 	return (
@@ -59,7 +66,7 @@ function ProfileMenu(): React.JSX.Element {
 					onPointerLeaveCapture={undefined}
 					variant="text"
 					color="blue-gray"
-					className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto bg-gradient-to-l from-blue-500 via-light-blue-200 to-cyan-500 animate-bg"
+					className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto bg-blue-50"
 				>
 					<Avatar
 						placeholder={undefined}
@@ -68,15 +75,10 @@ function ProfileMenu(): React.JSX.Element {
 						variant="circular"
 						size="sm"
 						alt="Profile"
-						className="border object-contain border-blue-500 p-0.5"
+						className="border object-contain border-blue-500"
 						src="https://ezoofkqgdygcddmpknsp.supabase.co/storage/v1/object/sign/archilst/profile/profile.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJhcmNoaWxzdC9wcm9maWxlL3Byb2ZpbGUuanBnIiwiaWF0IjoxNzE5MjkyMzQ5LCJleHAiOjE3NTA4MjgzNDl9.ELDyK_-2FiQ_5yW-pO0XkXRg9R9I_5XeDC8bvBwJ7AE&t=2024-06-25T05%3A12%3A24.390Z"
 					/>
-					<ChevronDownIcon
-						strokeWidth={2.5}
-						className={`h-3 w-3 transition-transform ${
-							isMenuOpen ? "rotate-180" : ""
-						}animate-bounce `}
-					/>
+					<ChevronDownIcon strokeWidth={2.5} className={`h-3 w-3 `} />
 				</Button>
 			</MenuHandler>
 			<MenuList
@@ -86,23 +88,18 @@ function ProfileMenu(): React.JSX.Element {
 				className="p-1"
 			>
 				{profileMenuItems.map(({ label, icon, route }, key) => {
-					const isLastItem = key === profileMenuItems.length - 1;
 					return (
-						<Link href={route} target="_blank">
+						<Link href={route} target="_blank" key={key}>
 							<MenuItem
 								placeholder={undefined}
 								onPointerEnterCapture={undefined}
 								onPointerLeaveCapture={undefined}
 								key={label}
 								onClick={closeMenu}
-								className={`flex items-center gap-2 rounded ${
-									isLastItem
-										? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
-										: ""
-								}`}
+								className={`flex items-center gap-2 rounded`}
 							>
-								{React.createElement(icon, {
-									className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
+								{createElement(icon, {
+									className: `h-4 w-4 }`,
 									strokeWidth: 2,
 								})}
 
@@ -113,7 +110,6 @@ function ProfileMenu(): React.JSX.Element {
 									as="span"
 									variant="small"
 									className="font-normal"
-									color={isLastItem ? "red" : "inherit"}
 								>
 									{label}
 								</Typography>
@@ -130,7 +126,7 @@ function ProfileMenu(): React.JSX.Element {
 function NavList(): React.JSX.Element {
 	const navListItems: navlist[] = [
 		{
-			label: "Account",
+			label: "Profile",
 			route: "#",
 			icon: UserCircleIcon,
 		},
@@ -153,7 +149,7 @@ function NavList(): React.JSX.Element {
 					placeholder={undefined}
 					onPointerEnterCapture={undefined}
 					onPointerLeaveCapture={undefined}
-					key={label}
+					key={key}
 					as="a"
 					href={route}
 					variant="small"
@@ -166,8 +162,7 @@ function NavList(): React.JSX.Element {
 						onPointerLeaveCapture={undefined}
 						className="flex items-center gap-2 lg:rounded-full"
 					>
-						{React.createElement(icon, { className: "h-[18px] w-[18px]" })}{" "}
-						{label}
+						{createElement(icon, { className: "h-[18px] w-[18px]" })} {label}
 					</MenuItem>
 				</Typography>
 			))}
@@ -176,13 +171,13 @@ function NavList(): React.JSX.Element {
 }
 
 export default function Navigation(): React.JSX.Element {
-	const [isNavOpen, setIsNavOpen] = React.useState(false);
-	const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
+	const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
+	const toggleIsNavOpen = (): void => setIsNavOpen((cur) => !cur);
 
-	React.useEffect(() => {
-		window.addEventListener(
+	useEffect((): void => {
+		window.addEventListener<"resize">(
 			"resize",
-			() => window.innerWidth >= 960 && setIsNavOpen(false),
+			(): false | void => window.innerWidth >= 960 && setIsNavOpen(false),
 		);
 	}, []);
 
@@ -221,7 +216,7 @@ export default function Navigation(): React.JSX.Element {
 				</IconButton>
 				<ProfileMenu />
 			</div>
-			<MobileNav open={isNavOpen} className="overflow-scroll">
+			<MobileNav open={isNavOpen} className="">
 				<NavList />
 			</MobileNav>
 		</Navbar>

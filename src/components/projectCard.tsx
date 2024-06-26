@@ -1,6 +1,8 @@
 "use client";
-import React from "react";
+
+import { createElement } from "react";
 import Link from "next/link";
+
 import {
 	Card,
 	CardHeader,
@@ -14,10 +16,14 @@ import { SiNextDotJs } from "@react-icons/all-files/si/SiNextDotJs";
 import { SiReact } from "@react-icons/all-files/si/SiReact";
 import { SiTailwindcss } from "@react-icons/all-files/si/SiTailwindcss";
 import { SiMongodb } from "@react-icons/all-files/si/SiMongodb";
+import { SiTypescript } from "@react-icons/all-files/si/SiTypescript";
+import { SiJavascript } from "@react-icons/all-files/si/SiJavascript";
 import { BsFillQuestionCircleFill } from "@react-icons/all-files/bs/BsFillQuestionCircleFill";
 import { IconType } from "@react-icons/all-files/lib";
+import { IconBaseProps } from "@react-icons/all-files";
+import { project } from "@/utils/types/data";
 
-function Icon(lang: string) {
+function Icon(lang: string): React.FunctionComponentElement<IconBaseProps> {
 	let icon: IconType;
 
 	switch (lang) {
@@ -37,17 +43,32 @@ function Icon(lang: string) {
 			icon = SiMongodb;
 			break;
 
+		case "TypeScript":
+			icon = SiTypescript;
+			break;
+
+		case "JavaScript":
+			icon = SiJavascript;
+			break;
+
 		default:
 			icon = BsFillQuestionCircleFill;
 			break;
 	}
 
-	return React.createElement(icon, {
+	return createElement(icon, {
 		className: `h-5 w-5`,
 	});
 }
 
-export default function ProjectCard({ data }) {
+export default function ProjectCard({
+	img,
+	title,
+	desc,
+	languages,
+	link,
+	github,
+}: project): JSX.Element {
 	return (
 		<Card
 			className="mb-4 md:mb-8 lg:mb-11 w-full max-w-[20rem] lg:max-w-[24rem] shadow-lg"
@@ -63,7 +84,7 @@ export default function ProjectCard({ data }) {
 				onPointerLeaveCapture={undefined}
 			>
 				<img
-					src={data.img}
+					src={img}
 					alt="ui/ux review check"
 					className="max-h-[14rem] md:h-[12rem] lg:h-[14rem]"
 				/>
@@ -83,7 +104,7 @@ export default function ProjectCard({ data }) {
 						onPointerEnterCapture={undefined}
 						onPointerLeaveCapture={undefined}
 					>
-						{data.title}
+						{title}
 					</Typography>
 				</div>
 				<Typography
@@ -93,14 +114,13 @@ export default function ProjectCard({ data }) {
 					onPointerEnterCapture={undefined}
 					onPointerLeaveCapture={undefined}
 				>
-					{data.desc}
+					{desc}
 				</Typography>
 				<div className="group mt-8 inline-flex flex-wrap items-center gap-3">
-					{data.languages.map((lang: string) => {
+					{languages.map((lang: string) => {
 						return (
 							<Tooltip content={lang}>
 								<span className="cursor-pointer rounded-full border border-blue-500/5 bg-blue-500/5 p-3 text-blue-500 transition-colors hover:border-blue-500/10 hover:bg-blue-500/10 hover:!opacity-100 group-hover:opacity-70">
-									{/* <SiReact className='h-5 w-5' /> */}
 									{Icon(lang)}
 								</span>
 							</Tooltip>
@@ -109,12 +129,26 @@ export default function ProjectCard({ data }) {
 				</div>
 			</CardBody>
 			<CardFooter
-				className="pt-3"
+				className="flex flex-col pt-3 gap-3"
 				placeholder={undefined}
 				onPointerEnterCapture={undefined}
 				onPointerLeaveCapture={undefined}
 			>
-				<Link href={data.link} target="_blank">
+				<Link href={github} target="_blank">
+					<Button
+						variant="outlined"
+						color="blue"
+						size="lg"
+						className="hover:bg-blue-700 hover:text-white"
+						fullWidth={true}
+						placeholder={undefined}
+						onPointerEnterCapture={undefined}
+						onPointerLeaveCapture={undefined}
+					>
+						View Code
+					</Button>
+				</Link>
+				<Link href={link} target="_blank">
 					<Button
 						color="blue"
 						size="lg"
