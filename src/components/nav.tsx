@@ -49,6 +49,12 @@ function ProfileMenu(): JSX.Element {
 			icon: AiOutlineInstagram,
 			route: "https://www.instagram.com/arclst24/",
 		},
+		// {
+		// 	label: "Resume",
+		// 	icon: AiOutlineSolution,
+		// 	route:
+		// 		"https://drive.google.com/file/d/1J_UgbGGq1awZt2ZDSruU_DfWgJYoOZGk/view?usp=sharing",
+		// },
 	];
 
 	return (

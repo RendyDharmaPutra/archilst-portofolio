@@ -4,12 +4,13 @@ async function dbconnect(): Promise<{
 	db: Db;
 	client: MongoClient;
 }> {
-	const uri: string = process.env.DB_URL!;
+	const uri: string =
+		"mongodb+srv://archilst:rendydp424@basic.xol0yrs.mongodb.net/?retryWrites=true&w=majority;";
 	const client: MongoClient = new MongoClient(uri);
 
 	await client.connect();
 
-	const db: Db = client.db(process.env.DB_NAME);
+	const db: Db = client.db("nextjs");
 
 	return { db, client };
 }
