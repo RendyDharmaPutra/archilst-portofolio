@@ -25,7 +25,7 @@ import {
 import { AiOutlineGithub } from "@react-icons/all-files/ai/AiOutlineGithub";
 import { AiOutlineInstagram } from "@react-icons/all-files/ai/AiOutlineInstagram";
 import { HiOutlineMail } from "@react-icons/all-files/hi/HiOutlineMail";
-import { AiOutlineSolution } from "@react-icons/all-files/Ai/AiOutlineSolution";
+// import { AiOutlineSolution } from "@react-icons/all-files/Ai/AiOutlineSolution";
 import { navlist, profilelist } from "@/utils/types/menu";
 
 // profile menu component
