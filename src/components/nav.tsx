@@ -25,7 +25,7 @@ import {
 import { AiOutlineGithub } from "@react-icons/all-files/ai/AiOutlineGithub";
 import { AiOutlineInstagram } from "@react-icons/all-files/ai/AiOutlineInstagram";
 import { HiOutlineMail } from "@react-icons/all-files/hi/HiOutlineMail";
-import { AiOutlineAudit } from "@react-icons/all-files/Ai/AiOutlineAudit";
+import { AiOutlineIdcard } from "@react-icons/all-files/Ai/AiOutlineIdcard";
 import { navlist, profilelist } from "@/utils/types/menu";
 
 // profile menu component
@@ -51,7 +51,7 @@ function ProfileMenu(): JSX.Element {
 		},
 		{
 			label: "Resume",
-			icon: AiOutlineAudit,
+			icon: AiOutlineIdcard,
 			route:
 				"https://drive.google.com/file/d/1J_UgbGGq1awZt2ZDSruU_DfWgJYoOZGk/view?usp=sharing",
 		},
