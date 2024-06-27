@@ -16,6 +16,8 @@ import { SiNextDotJs } from "@react-icons/all-files/si/SiNextDotJs";
 import { SiReact } from "@react-icons/all-files/si/SiReact";
 import { SiTailwindcss } from "@react-icons/all-files/si/SiTailwindcss";
 import { SiMongodb } from "@react-icons/all-files/si/SiMongodb";
+import { SiPostgresql } from "@react-icons/all-files/si/SiPostgresql";
+import { SiPython } from "@react-icons/all-files/si/SiPython";
 import { SiTypescript } from "@react-icons/all-files/si/SiTypescript";
 import { SiJavascript } from "@react-icons/all-files/si/SiJavascript";
 import { BsFillQuestionCircleFill } from "@react-icons/all-files/bs/BsFillQuestionCircleFill";
@@ -39,8 +41,16 @@ function Icon(lang: string): React.FunctionComponentElement<IconBaseProps> {
 			icon = SiNextDotJs;
 			break;
 
-		case "Mongodb":
+		case "MongoDB":
 			icon = SiMongodb;
+			break;
+
+		case "PostgreSQl":
+			icon = SiPostgresql;
+			break;
+
+		case "Python":
+			icon = SiPython;
 			break;
 
 		case "TypeScript":
@@ -148,18 +158,20 @@ export default function ProjectCard({
 						View Code
 					</Button>
 				</Link>
-				<Link href={link} target="_blank">
-					<Button
-						color="blue"
-						size="lg"
-						fullWidth={true}
-						placeholder={undefined}
-						onPointerEnterCapture={undefined}
-						onPointerLeaveCapture={undefined}
-					>
-						Visit
-					</Button>
-				</Link>
+				{link.length > 0 && (
+					<Link href={link} target="_blank">
+						<Button
+							color="blue"
+							size="lg"
+							fullWidth={true}
+							placeholder={undefined}
+							onPointerEnterCapture={undefined}
+							onPointerLeaveCapture={undefined}
+						>
+							Visit
+						</Button>
+					</Link>
+				)}
 			</CardFooter>
 		</Card>
 	);

@@ -25,15 +25,20 @@ import {
 import { AiOutlineGithub } from "@react-icons/all-files/ai/AiOutlineGithub";
 import { AiOutlineInstagram } from "@react-icons/all-files/ai/AiOutlineInstagram";
 import { HiOutlineMail } from "@react-icons/all-files/hi/HiOutlineMail";
-// import { AiOutlineSolution } from "@react-icons/all-files/Ai/AiOutlineSolution";
-import { navlist, profilelist } from "@/utils/types/menu";
+import { navlist } from "@/utils/types/menu";
 
 // profile menu component
 function ProfileMenu(): JSX.Element {
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 	const closeMenu = (): void => setIsMenuOpen(false);
 
-	const profileMenuItems: profilelist[] = [
+	const profileMenuItems: navlist[] = [
+		{
+			label: "Resume",
+			icon: UserCircleIcon,
+			route:
+				"https://drive.google.com/file/d/1ITU8sjgNo7KFOZ0bWL7BFgbvNQmpr5gt/view?usp=sharing",
+		},
 		{
 			label: "Email",
 			icon: HiOutlineMail,
@@ -49,12 +54,6 @@ function ProfileMenu(): JSX.Element {
 			icon: AiOutlineInstagram,
 			route: "https://www.instagram.com/arclst24/",
 		},
-		// {
-		// 	label: "Resume",
-		// 	icon: AiOutlineSolution,
-		// 	route:
-		// 		"https://drive.google.com/file/d/1J_UgbGGq1awZt2ZDSruU_DfWgJYoOZGk/view?usp=sharing",
-		// },
 	];
 
 	return (
