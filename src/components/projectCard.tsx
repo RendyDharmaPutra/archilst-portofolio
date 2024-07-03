@@ -13,13 +13,16 @@ import {
 	Tooltip,
 } from "@material-tailwind/react";
 import { SiNextDotJs } from "@react-icons/all-files/si/SiNextDotJs";
+import { SiFlutter } from "@react-icons/all-files/si/SiFlutter";
 import { SiReact } from "@react-icons/all-files/si/SiReact";
 import { SiTailwindcss } from "@react-icons/all-files/si/SiTailwindcss";
 import { SiMongodb } from "@react-icons/all-files/si/SiMongodb";
 import { SiPostgresql } from "@react-icons/all-files/si/SiPostgresql";
+import { DiSqllite } from "@react-icons/all-files/di/DiSqllite";
 import { SiPython } from "@react-icons/all-files/si/SiPython";
 import { SiTypescript } from "@react-icons/all-files/si/SiTypescript";
 import { SiJavascript } from "@react-icons/all-files/si/SiJavascript";
+import { SiDart } from "@react-icons/all-files/si/SiDart";
 import { BsFillQuestionCircleFill } from "@react-icons/all-files/bs/BsFillQuestionCircleFill";
 import { IconType } from "@react-icons/all-files/lib";
 import { IconBaseProps } from "@react-icons/all-files";
@@ -41,12 +44,20 @@ function Icon(lang: string): React.FunctionComponentElement<IconBaseProps> {
 			icon = SiNextDotJs;
 			break;
 
+		case "Flutter":
+			icon = SiFlutter;
+			break;
+
 		case "MongoDB":
 			icon = SiMongodb;
 			break;
 
 		case "PostgreSQl":
 			icon = SiPostgresql;
+			break;
+
+		case "SQLite":
+			icon = DiSqllite;
 			break;
 
 		case "Python":
@@ -59,6 +70,10 @@ function Icon(lang: string): React.FunctionComponentElement<IconBaseProps> {
 
 		case "JavaScript":
 			icon = SiJavascript;
+			break;
+
+		case "Dart":
+			icon = SiDart;
 			break;
 
 		default:
