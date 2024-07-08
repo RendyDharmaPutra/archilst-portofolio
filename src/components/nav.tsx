@@ -37,7 +37,7 @@ function ProfileMenu(): JSX.Element {
 			label: "Resume",
 			icon: UserCircleIcon,
 			route:
-				"https://drive.google.com/file/d/18jLlJ-ASQugE00sOojOOJIp9UKNy30X7/view?usp=sharing",
+				"https://drive.google.com/file/d/1BqQff48AWrER5WvdFgas0X_RvKVBKJEf/view?usp=sharing",
 		},
 		{
 			label: "Email",
