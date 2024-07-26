@@ -13,6 +13,7 @@ import {
 	Tooltip,
 } from "@material-tailwind/react";
 import { SiNextDotJs } from "@react-icons/all-files/si/SiNextDotJs";
+import { RiRemixiconFill } from "@react-icons/all-files/ri/RiRemixiconFill";
 import { SiFlutter } from "@react-icons/all-files/si/SiFlutter";
 import { SiReact } from "@react-icons/all-files/si/SiReact";
 import { SiTailwindcss } from "@react-icons/all-files/si/SiTailwindcss";
@@ -42,6 +43,10 @@ function Icon(lang: string): React.FunctionComponentElement<IconBaseProps> {
 
 		case "Next.js":
 			icon = SiNextDotJs;
+			break;
+
+		case "Remix":
+			icon = RiRemixiconFill;
 			break;
 
 		case "Flutter":
